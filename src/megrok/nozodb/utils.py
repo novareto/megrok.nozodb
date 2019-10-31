@@ -6,7 +6,7 @@ import logging
 import ZConfig
 
 from zope import component
-from zope.site.hooks import setSite
+from zope.component.hooks import setSite
 from zope.site.interfaces import IRootFolder
 
 from grokcore.view.publication import GrokBrowserPublication
