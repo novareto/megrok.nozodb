@@ -76,7 +76,7 @@ def config(configfile, schemafile=None, features=()):
             os.path.dirname(appsetup.__file__), 'schema', 'schema.xml')
 
     # Let's support both, an opened file and path
-    if isinstance(schemafile, basestring):
+    if isinstance(schemafile, str):
         schema = ZConfig.loadSchema(schemafile)
     else:
         schema = ZConfig.loadSchemaFile(schemafile)
@@ -84,11 +84,11 @@ def config(configfile, schemafile=None, features=()):
     # Load the configuration file
     # Let's support both, an opened file and path
     try:
-        if isinstance(configfile, basestring):
+        if isinstance(configfile, str):
             options, handlers = ZConfig.loadConfig(schema, configfile)
         else:
             options, handlers = ZConfig.loadConfigFile(schema, configfile)
-    except ZConfig.ConfigurationError, msg:
+    except ZConfig.ConfigurationError:
         sys.stderr.write("Error: %s\n" % str(msg))
         sys.exit(2)
 
